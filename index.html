@@ -2,91 +2,144 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Praktikum Perbedaan Python dan JavaScript - Hary</title>
+    <title>Praktikum Python vs JavaScript - M. Hariadi</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 20px;
         }
-        .box {
-            border: 1px solid #333;
-            padding: 10px;
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
             margin-top: 10px;
-            background-color: #f9f9f9;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .box {
+            margin-top: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
             min-height: 30px;
         }
-        button {
-            margin-top: 5px;
-            padding: 5px 10px;
-        }
-        hr {
-            margin: 25px 0;
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-<h1>Praktikum: Perbedaan Python dan JavaScript</h1>
-<p>Output program langsung ditampilkan di halaman web.</p>
-<p><strong>Nama Praktikan: M.Hariadi</strong></p>
+<div class="container">
 
-<hr>
+<header>
+    <h1>Praktikum Perbedaan Python dan JavaScript</h1>
+    <p>Pemrograman Dasar | Output Langsung di Web</p>
+</header>
 
-<!-- ==================== 1. VARIABEL ==================== -->
-<h2>1. identitas</h2>
-<button onclick="contohVariabel()">Jalankan</button>
-<div id="out1" class="box"></div>
+<div class="card">
+    <h2>👤 Identitas Praktikan</h2>
+    <button onclick="contohIdentitas()">Tampilkan Identitas</button>
+    <div id="out1" class="box"></div>
+</div>
 
-<!-- ==================== 2. ARRAY ==================== -->
-<h2>2. buah-buahan</h2>
-<button onclick="contohArray()">Jalankan</button>
-<div id="out2" class="box"></div>
+<div class="card">
+    <h2>🍎 Array / List (Buah-buahan)</h2>
+    <button onclick="contohArray()">Tampilkan Data</button>
+    <div id="out2" class="box"></div>
+</div>
 
-<!-- ==================== 3. KONDISI ==================== -->
-<h2>3. nilai (If - Else)</h2>
-<button onclick="contohKondisi()">Jalankan</button>
-<div id="out3" class="box"></div>
+<div class="card">
+    <h2>📊 Kondisi (If - Else)</h2>
+    <button onclick="contohKondisi()">Cek Nilai</button>
+    <div id="out3" class="box"></div>
+</div>
 
-<!-- ==================== 4. LOOPING ==================== -->
-<h2>4. pengulangan</h2>
-<button onclick="contohLoop()">Jalankan</button>
-<div id="out4" class="box"></div>
+<div class="card">
+    <h2>🔁 Looping (Pengulangan)</h2>
+    <button onclick="contohLoop()">Jalankan Loop</button>
+    <div id="out4" class="box"></div>
+</div>
+
+<footer>
+    © 2025 | Praktikum Pemrograman Dasar | M. Hariadi
+</footer>
+
+</div>
 
 <script>
 /*
 ========================================
-1. VARIABEL
+1. IDENTITAS
 Python:
-nama = "Hary"
+nama = "M. Hariadi"
 umur = 21
-print(nama, umur)
+hobi = ["Mendaki Gunung", "Hiking"]
+alamat = "Pringgabaya, Lombok Timur, NTB"
 ========================================
 */
-function contohVariabel() {
-    let nama = "M.Hariadi";
+function contohIdentitas() {
+    let nama = "M. Hariadi";
     let umur = 21;
-    let hobi = mendaki gunung,hiking;
-    let alamat = pringgabaya,lotim,NTB;
+    let hobi = ["Mendaki Gunung", "Hiking"];
+    let alamat = "Pringgabaya, Lombok Timur, NTB";
 
     document.getElementById("out1").innerHTML =
-        "Nama: " + nama + "<br>Umur: " + umur;
+        "<strong>Nama:</strong> " + nama + "<br>" +
+        "<strong>Umur:</strong> " + umur + " tahun<br>" +
+        "<strong>Hobi:</strong> " + hobi.join(", ") + "<br>" +
+        "<strong>Alamat:</strong> " + alamat;
 }
 
 /*
 ========================================
 2. ARRAY / LIST
-Python:
-buah = ["apel", "jeruk", "mangga"]
-for b in buah:
-    print(b)
 ========================================
 */
 function contohArray() {
-    let buah = ["kelengkeng","Apel", "Jeruk", "Mangga"];
-    let output = "";
+    let buah = ["Kelengkeng", "Apel", "Jeruk", "Mangga"];
+    let output = "<strong>Daftar Buah:</strong><br>";
 
     for (let i = 0; i < buah.length; i++) {
-        output += buah[i] + "<br>";
+        output += (i + 1) + ". " + buah[i] + "<br>";
     }
 
     document.getElementById("out2").innerHTML = output;
@@ -94,35 +147,21 @@ function contohArray() {
 
 /*
 ========================================
-3. KONDISI
-Python:
-nilai = 80
-if nilai >= 75:
-    print("Lulus")
-else:
-    print("Tidak Lulus")
+3. KONDISI IF ELSE
 ========================================
 */
 function contohKondisi() {
     let nilai = 95;
-    let hasil;
-
-    if (nilai >= 75) {
-        hasil = "Lulus";
-    } else {
-        hasil = "Tidak Lulus";
-    }
+    let status = (nilai >= 75) ? "Lulus ✅" : "Tidak Lulus ❌";
 
     document.getElementById("out3").innerHTML =
-        "Nilai: " + nilai + "<br>Status: " + hasil;
+        "<strong>Nilai:</strong> " + nilai + "<br>" +
+        "<strong>Status:</strong> " + status;
 }
 
 /*
 ========================================
 4. LOOPING
-Python:
-for i in range(1, 6):
-    print(i)
 ========================================
 */
 function contohLoop() {
