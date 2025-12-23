@@ -2,100 +2,134 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Python Runner (GitHub Pages)</title>
-
-    <!-- Pyodide -->
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
-
+    <title>Praktikum Perbedaan Python dan JavaScript</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            padding: 20px;
+            margin: 20px;
         }
-        textarea {
-            width: 100%;
-            height: 220px;
-            font-family: monospace;
+        .box {
+            border: 1px solid #333;
             padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            min-height: 30px;
         }
         button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
+            margin-top: 5px;
+            padding: 5px 10px;
         }
-        pre {
-            background: #111;
-            color: #00ff90;
-            padding: 10px;
-            min-height: 100px;
-            border-radius: 5px;
+        hr {
+            margin: 25px 0;
         }
     </style>
 </head>
 <body>
 
-<h2>Menjalankan Python di GitHub Pages 🐍</h2>
+<h1>Praktikum: Perbedaan Python dan JavaScript</h1>
+<p>Output program langsung ditampilkan di halaman web.</p>
 
-<textarea id="code">
-# Variabel
-nama = "Hary"
-umur = 21
-jurusan = "Matematika"
+<hr>
 
-print("Nama:", nama)
-print("Umur:", umur)
-print("Jurusan:", jurusan)
+<!-- ==================== 1. VARIABEL ==================== -->
+<h2>1. Variabel & Output</h2>
+<button onclick="contohVariabel()">Jalankan</button>
+<div id="out1" class="box"></div>
 
-# List dan Looping
-hobi = ["Membaca", "Ngoding", "Olahraga"]
-for h in hobi:
-    print("Hobi:", h)
+<!-- ==================== 2. ARRAY ==================== -->
+<h2>2. Array / List</h2>
+<button onclick="contohArray()">Jalankan</button>
+<div id="out2" class="box"></div>
 
-# Kondisi
-nilai = 85
+<!-- ==================== 3. KONDISI ==================== -->
+<h2>3. Kondisi (If - Else)</h2>
+<button onclick="contohKondisi()">Jalankan</button>
+<div id="out3" class="box"></div>
+
+<!-- ==================== 4. LOOPING ==================== -->
+<h2>4. Looping</h2>
+<button onclick="contohLoop()">Jalankan</button>
+<div id="out4" class="box"></div>
+
+<script>
+/*
+========================================
+1. VARIABEL
+Python:
+nama = "Andi"
+umur = 20
+print(nama, umur)
+========================================
+*/
+function contohVariabel() {
+    let nama = "Andi";
+    let umur = 20;
+
+    document.getElementById("out1").innerHTML =
+        "Nama: " + nama + "<br>Umur: " + umur;
+}
+
+/*
+========================================
+2. ARRAY / LIST
+Python:
+buah = ["apel", "jeruk", "mangga"]
+for b in buah:
+    print(b)
+========================================
+*/
+function contohArray() {
+    let buah = ["Apel", "Jeruk", "Mangga"];
+    let output = "";
+
+    for (let i = 0; i < buah.length; i++) {
+        output += buah[i] + "<br>";
+    }
+
+    document.getElementById("out2").innerHTML = output;
+}
+
+/*
+========================================
+3. KONDISI
+Python:
+nilai = 80
 if nilai >= 75:
     print("Lulus")
 else:
     print("Tidak Lulus")
-</textarea>
+========================================
+*/
+function contohKondisi() {
+    let nilai = 80;
+    let hasil;
 
-<br>
-<button onclick="runPython()">▶ Jalankan Python</button>
+    if (nilai >= 75) {
+        hasil = "Lulus";
+    } else {
+        hasil = "Tidak Lulus";
+    }
 
-<h3>Output:</h3>
-<pre id="output"></pre>
-
-<script>
-let pyodideReady = false;
-let pyodide;
-
-async function loadPyodideAndPackages() {
-    pyodide = await loadPyodide();
-    pyodideReady = true;
+    document.getElementById("out3").innerHTML =
+        "Nilai: " + nilai + "<br>Status: " + hasil;
 }
 
-loadPyodideAndPackages();
+/*
+========================================
+4. LOOPING
+Python:
+for i in range(1, 6):
+    print(i)
+========================================
+*/
+function contohLoop() {
+    let output = "";
 
-async function runPython() {
-    if (!pyodideReady) {
-        document.getElementById("output").textContent = "Pyodide sedang loading...";
-        return;
+    for (let i = 1; i <= 5; i++) {
+        output += "Perulangan ke-" + i + "<br>";
     }
 
-    const code = document.getElementById("code").value;
-
-    try {
-        let result = await pyodide.runPythonAsync(code);
-        document.getElementById("output").textContent =
-            pyodide.runPython("import sys; sys.stdout.getvalue()");
-    } catch (err) {
-        document.getElementById("output").textContent = err;
-    }
+    document.getElementById("out4").innerHTML = output;
 }
 </script>
 
