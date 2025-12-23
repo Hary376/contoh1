@@ -28,27 +28,27 @@
 
 <h1>Praktikum: Perbedaan Python dan JavaScript</h1>
 <p>Output program langsung ditampilkan di halaman web.</p>
-<p><strong>Nama Praktikan: Hary</strong></p>
+<p><strong>Nama Praktikan: M.Hariadi</strong></p>
 
 <hr>
 
 <!-- ==================== 1. VARIABEL ==================== -->
-<h2>1. Variabel & Output</h2>
+<h2>1. identitas</h2>
 <button onclick="contohVariabel()">Jalankan</button>
 <div id="out1" class="box"></div>
 
 <!-- ==================== 2. ARRAY ==================== -->
-<h2>2. Array / List</h2>
+<h2>2. buah-buahan</h2>
 <button onclick="contohArray()">Jalankan</button>
 <div id="out2" class="box"></div>
 
 <!-- ==================== 3. KONDISI ==================== -->
-<h2>3. Kondisi (If - Else)</h2>
+<h2>3. nilai (If - Else)</h2>
 <button onclick="contohKondisi()">Jalankan</button>
 <div id="out3" class="box"></div>
 
 <!-- ==================== 4. LOOPING ==================== -->
-<h2>4. Looping</h2>
+<h2>4. pengulangan</h2>
 <button onclick="contohLoop()">Jalankan</button>
 <div id="out4" class="box"></div>
 
@@ -63,8 +63,10 @@ print(nama, umur)
 ========================================
 */
 function contohVariabel() {
-    let nama = "Hary";
+    let nama = "M.Hariadi";
     let umur = 21;
+    let hobi = mendaki gunung,hiking;
+    let alamat = pringgabaya,lotim,NTB;
 
     document.getElementById("out1").innerHTML =
         "Nama: " + nama + "<br>Umur: " + umur;
@@ -80,7 +82,7 @@ for b in buah:
 ========================================
 */
 function contohArray() {
-    let buah = ["Apel", "Jeruk", "Mangga"];
+    let buah = ["kelengkeng","Apel", "Jeruk", "Mangga"];
     let output = "";
 
     for (let i = 0; i < buah.length; i++) {
@@ -102,7 +104,7 @@ else:
 ========================================
 */
 function contohKondisi() {
-    let nilai = 80;
+    let nilai = 95;
     let hasil;
 
     if (nilai >= 75) {
